@@ -5,4 +5,4 @@ func _process(delta):
 	var bodies = get_overlapping_bodies()
 	for b in bodies:
 		if b.name == "Player":
-			get_tree().change_scene("Over.tscn")
+			get_tree().change_scene("StartMenu.tscn")

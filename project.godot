@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Second Game"
+run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
 [display]

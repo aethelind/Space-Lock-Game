@@ -6,6 +6,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="spacewall2" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 512, 320 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )

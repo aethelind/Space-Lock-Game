@@ -4,12 +4,13 @@ extends KinematicBody2D
 const UP = Vector2(0,-1)
 const GRAVITY = 1
 const H_GRAVITY = -3
-const SPEED = 180
+const SPEED = 225
 const JUMP = 160
-const BONK = 100
+const BONK = 200
 
 var r = 0
 var r_delta = 0
+var r_dir = 1
 var motion = Vector2()
 
 func _process(delta):
@@ -39,21 +40,23 @@ func _process(delta):
 		$Sprite.play("Bonk")
 		motion.y = -BONK
 		motion.x += rand_range(-100, -50)
+		r_dir = -r_dir
 	elif is_on_ceiling():
 		$Sprite.play("Bonk")
 		motion.y = BONK
 		motion.x += rand_range(-100, -50)
+		r_dir = -r_dir
 	elif is_on_wall():
 		$Sprite.play("Bonk")
 		motion.x = -SPEED
 	
 	# add a rotation
 	if motion.x < 0:
-		r_delta = 3
+		r_delta = 2 * r_dir
 	else:
-		r_delta = -3
+		r_delta = 1 * r_dir
 	
-	r+=r_delta
+	r=(r+r_delta)%360
 	set_rotation_degrees(r)
 	# updates motion when it hits the floor
 	motion = move_and_slide(motion, UP)
