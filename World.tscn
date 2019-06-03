@@ -7,8 +7,8 @@
 [ext_resource path="res://assets/characters/aliens/green/alienGreen_jump.png" type="Texture" id=5]
 [ext_resource path="res://assets/characters/aliens/green/alienGreen_walk1.png" type="Texture" id=6]
 [ext_resource path="res://assets/characters/aliens/green/alienGreen_walk2.png" type="Texture" id=7]
-[ext_resource path="res://Junk.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Area2D.gd" type="Script" id=9]
+[ext_resource path="res://Area2D.gd" type="Script" id=8]
+[ext_resource path="res://spawner_enemy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 25.0238
@@ -70,10 +70,6 @@ frames = SubResource( 2 )
 animation = "Float"
 speed_scale = 2.0
 
-[node name="Junk" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1152, 306 )
-scale = Vector2( 2, 2 )
-
 [node name="Right" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 512, 704 )
@@ -103,7 +99,7 @@ shape = SubResource( 4 )
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( -128, 320 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -111,3 +107,5 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 50, 0 )
 shape = SubResource( 5 )
+
+[node name="spawner_enemy" parent="." instance=ExtResource( 9 )]
