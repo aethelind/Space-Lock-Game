@@ -20,10 +20,18 @@ func spawn():
 		var debris = enemy.instance()
 		debris.velocity.x = rand_range(-300,-100)
 		debris.velocity.y = rand_range(-300,300)
+		debris.r_dir = int(rand_range(-3,3))
+		while(debris.r_dir == 0):
+			debris.r_dir = int(rand_range(-3,3))
 		var pos = Vector2()
+		var sh = debris.get_node("shape")
+		var sp = debris.get_node("sprite")
+		sh.set_extents(Vector2(5,5))
+		print(sh)
+		
 		
 		# x position is fixed at just to the right of screen
-		pos.x = get_viewport().get_visible_rect().size.x+64
+		pos.x = get_viewport().get_visible_rect().size.x
 		#y pos is random from top to bottom within margin
 		pos.y = rand_range(0+64,get_viewport().get_visible_rect().size.y-64)
 		

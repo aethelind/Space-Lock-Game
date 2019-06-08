@@ -48,7 +48,7 @@ func _process(delta):
 		r_dir = -r_dir
 	elif is_on_wall():
 		$Sprite.play("Bonk")
-		motion.x = -SPEED
+		motion.x = -SPEED*1.5
 	
 	# add a rotation
 	if motion.x < 0:
@@ -58,5 +58,5 @@ func _process(delta):
 	
 	r=(r+r_delta)%360
 	set_rotation_degrees(r)
-	# updates motion when it hits the floor
+	
 	motion = move_and_slide(motion, UP)
