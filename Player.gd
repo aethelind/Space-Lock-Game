@@ -4,9 +4,9 @@ extends KinematicBody2D
 const UP = Vector2(0,-1)
 const GRAVITY = 1
 const H_GRAVITY = -3
-const SPEED = 225
-const JUMP = 160
-const BONK = 200
+const SPEED = 300
+const JUMP = 300
+const BONK = 250
 
 var r = 0
 var r_delta = 0

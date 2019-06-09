@@ -43,6 +43,6 @@ func spawn():
 		# set position and add it to scene
 		debris.position = pos
 		get_node("container").add_child(debris)
-		yield(get_tree().create_timer(rand_range(1, 4)), "timeout")
+		yield(get_tree().create_timer(rand_range(0.25, 1.5)), "timeout")
 	
 	pass
