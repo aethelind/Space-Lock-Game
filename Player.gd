@@ -58,5 +58,5 @@ func _process(delta):
 	
 	r=(r+r_delta)%360
 	set_rotation_degrees(r)
-	
+	# look_at(get_global_mouse_position())
 	motion = move_and_slide(motion, UP)
