@@ -39,3 +39,8 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, UP)
 	pass
+
+
+func damage():
+	queue_free()
+	pass

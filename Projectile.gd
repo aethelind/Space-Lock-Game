@@ -1,26 +1,28 @@
 extends Area2D
 
 var vel = Vector2()
-export var speed = 1000
+export var speed = 900
 export var damage = 10
+var target
 
 func _ready():
+	target = get_global_mouse_position()
+	vel = -(position - target).normalized()
 	set_process(true)
 
 
 func start_at(dir, pos):
-	rotation = dir
-	position = pos
-	vel = Vector2(speed, 0).rotated(dir)
-
-func _process(delta):
-	translate(vel * delta)
+	#vel = Vector2(speed, 0).rotated(dir)
 	pass
 
+func _process(delta):
+	position += vel*20
+
+# checks if its entered an enemy
+# the enemy names change but seem to always include 'enemy' so I use String.find
 func _on_Projectile_body_entered(body):
-	if body.name == ('enemy'):
-		print("shot debris")
-		#body.damage(damage)
+	if body.name.find('enemy') != -1:
+		body.damage()
 		queue_free()
 		return
 	pass # Replace with function body.

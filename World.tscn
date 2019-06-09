@@ -7,8 +7,8 @@
 [ext_resource path="res://assets/characters/aliens/green/alienGreen_walk2.png" type="Texture" id=5]
 [ext_resource path="res://assets/characters/aliens/green/alienGreen_hurt.png" type="Texture" id=6]
 [ext_resource path="res://assets/characters/aliens/green/alienGreen.png" type="Texture" id=7]
-[ext_resource path="res://Rifle.tscn" type="PackedScene" id=8]
-[ext_resource path="res://CollisionShape2D.gd" type="Script" id=9]
+[ext_resource path="res://CollisionShape2D.gd" type="Script" id=8]
+[ext_resource path="res://Rifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Right.gd" type="Script" id=10]
 [ext_resource path="res://Area2D.gd" type="Script" id=11]
 [ext_resource path="res://spawner_enemy.tscn" type="PackedScene" id=12]
@@ -37,8 +37,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 25.0238
-height = 41.508
+radius = 24.3951
+height = 32.3074
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 192, 384 )
@@ -68,15 +68,18 @@ frames = SubResource( 2 )
 animation = "Float"
 speed_scale = 2.0
 
-[node name="rifle" parent="Player" instance=ExtResource( 8 )]
-position = Vector2( 3, 14.4575 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( -7.62939e-06, 0.542767 )
+position = Vector2( -0.52494, -0.33205 )
 shape = SubResource( 1 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
+
+[node name="Rifle" parent="Player" instance=ExtResource( 9 )]
+position = Vector2( 0.174957, 13.1046 )
+
+[node name="Bullets" type="Node" parent="Player"]
 
 [node name="Right" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 512, 704 )
 script = ExtResource( 10 )
 

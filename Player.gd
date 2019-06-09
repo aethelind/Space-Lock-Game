@@ -33,6 +33,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
 		$Sprite.play("Float")
 		motion.y = JUMP
+	if Input.is_action_just_pressed('shoot'):
+		shoot()
 	
 	# bounce when hitting the walls
 	# get pushed in the opposite direction, and in some x direction
@@ -60,3 +62,8 @@ func _process(delta):
 	set_rotation_degrees(r)
 	# look_at(get_global_mouse_position())
 	motion = move_and_slide(motion, UP)
+
+func shoot():
+	var shot = load("res://Projectile.tscn").instance()
+	shot.position = get_global_position()
+	get_parent().add_child(shot)
