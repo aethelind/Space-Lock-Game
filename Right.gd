@@ -1,8 +1,8 @@
 extends Area2D
 
-# losing
+#RHS of screen, don't let player past
 func _process(delta):
 	var bodies = get_overlapping_bodies()
 	for b in bodies:
-		if b.name == "enemy":
-			print("h")
+		if b.name == "Player":
+			b.motion.x = -225
