@@ -17,6 +17,10 @@ func _ready():
 	pass 
 
 func _physics_process(delta):
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name == "Player":
+			queue_free()
 	# moves @ some velocity every frame
 	translate(velocity * delta)
 	

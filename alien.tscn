@@ -30,8 +30,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 26.9873
-height = 41.1655
+radius = 35.7882
+height = 40.8653
 
 [node name="alien" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -41,4 +41,5 @@ frames = SubResource( 1 )
 animation = "yellow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.02783, 1.02782 )
 shape = SubResource( 2 )

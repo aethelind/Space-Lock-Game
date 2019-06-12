@@ -13,8 +13,10 @@ var r_delta = 0
 var r_dir = 1
 var motion = Vector2()
 
+var flag = true
+
 func _process(delta):
-	
+	flag = true
 	motion.y+=GRAVITY
 	motion.x+=H_GRAVITY
 	

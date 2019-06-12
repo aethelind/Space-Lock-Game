@@ -6,10 +6,11 @@ const UP = Vector2(0,-1)
 # first, reference scene with debris we want to instantiate.
 const alien = preload("alien.tscn")
 
+const rot = [-1, 1]
 
 
 func _ready():
-	yield(get_tree().create_timer(rand_range(5.0,10.0)), "timeout")
+	#yield(get_tree().create_timer(rand_range(5.0,10.0)), "timeout")
 	spawn()
 	pass 
 
@@ -24,9 +25,7 @@ func spawn():
 		friend.rand_anim()
 		
 		# give debris a random non-zero rotation
-		friend.r_dir = int(rand_range(-5,5))
-		while(friend.r_dir == 0):
-			friend.r_dir = int(rand_range(-5,5))
+		friend.r_dir = rot[rand_range(0,1)]
 		
 		var pos = Vector2()
 		# x position is fixed at just to the right of screen
@@ -39,6 +38,6 @@ func spawn():
 		get_node("container").add_child(friend)
 		
 		# shorter timer for testing, but should be longer
-		yield(get_tree().create_timer(rand_range(1.0,5.0)), "timeout")
+		yield(get_tree().create_timer(rand_range(0,2.0)), "timeout")
 	
 	pass
