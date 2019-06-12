@@ -18,10 +18,13 @@ func start_at(dir, pos):
 func _process(delta):
 	position += vel*20
 
-# checks if its entered an enemy
-# the enemy names change but seem to always include 'enemy' so I use String.find
+# checks if its entered a friend or foe
+# the entity names change but seem to always include their name somehow so I use String.find
 func _on_Projectile_body_entered(body):
 	if body.name.find('enemy') != -1:
+		body.damage()
+		queue_free()
+	elif body.name.find('alien') != -1:
 		body.damage()
 		queue_free()
 		return

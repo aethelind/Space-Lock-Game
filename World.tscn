@@ -1,28 +1,29 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/spacewall2.jpg" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/characters/aliens/green/alienGreen_jump.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/aliens/green/alienGreen_walk1.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/aliens/green/alienGreen_walk2.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/aliens/green/alienGreen_walk1.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/aliens/green/alienGreen_walk2.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/aliens/green/alienGreen.png" type="Texture" id=5]
 [ext_resource path="res://assets/characters/aliens/green/alienGreen_hurt.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/aliens/green/alienGreen.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/aliens/green/alienGreen_jump.png" type="Texture" id=7]
 [ext_resource path="res://CollisionShape2D.gd" type="Script" id=8]
 [ext_resource path="res://Rifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Right.gd" type="Script" id=10]
 [ext_resource path="res://Area2D.gd" type="Script" id=11]
-[ext_resource path="res://spawner_enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://spawner_alien.tscn" type="PackedScene" id=12]
+[ext_resource path="res://spawner_enemy.tscn" type="PackedScene" id=13]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Float",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -32,11 +33,11 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Float",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 24.3951
 height = 32.3074
 
@@ -64,13 +65,13 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Float"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -0.52494, -0.33205 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 script = ExtResource( 8 )
 
 [node name="Rifle" parent="Player" instance=ExtResource( 9 )]
@@ -114,4 +115,6 @@ __meta__ = {
 position = Vector2( 50, 0 )
 shape = SubResource( 5 )
 
-[node name="spawner_enemy" parent="." instance=ExtResource( 12 )]
+[node name="spawner_alien" parent="." instance=ExtResource( 12 )]
+
+[node name="spawner_enemy" parent="." instance=ExtResource( 13 )]
