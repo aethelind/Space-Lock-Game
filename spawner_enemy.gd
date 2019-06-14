@@ -14,7 +14,7 @@ func _ready():
 
 
 func spawn():
-	while false:
+	while true:
 		randomize()
 		# create debris and set random spawn point:
 		var debris = enemy.instance()

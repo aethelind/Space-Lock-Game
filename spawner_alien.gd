@@ -10,7 +10,7 @@ const rot = [-1, 1]
 
 
 func _ready():
-	#yield(get_tree().create_timer(rand_range(5.0,10.0)), "timeout")
+	yield(get_tree().create_timer(rand_range(5.0,10.0)), "timeout")
 	spawn()
 	pass 
 
@@ -36,8 +36,8 @@ func spawn():
 		# set position and add it to scene
 		friend.position = pos
 		get_node("container").add_child(friend)
-		
+		print(friend.name)
 		# shorter timer for testing, but should be longer
-		yield(get_tree().create_timer(rand_range(0,2.0)), "timeout")
+		yield(get_tree().create_timer(rand_range(1.0,10.0)), "timeout")
 	
 	pass
